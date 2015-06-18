@@ -162,6 +162,8 @@ GEM
       pry
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
+    qunit-rails (0.0.7)
+      railties
     rack (1.6.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -291,6 +293,7 @@ DEPENDENCIES
   pry-rails
   pry-rescue
   puma
+  qunit-rails
   rails (= 4.2.1)
   rails_layout
   rb-fchange

@@ -32,6 +32,12 @@ Getting Started
 Documentation and Support
 -------------------------
 
+Testing
+-------
+Javascript Unit tests are provided by [QUnitJs](http://qunitjs.com). Test reports can be accessed at [http://localhost:3000/qunit](http://localhost:3000/qunit) assuming you're running the application locally.
+
+Tests are located in /test/javascript/<testName>.js
+
 Issues
 -------------
 

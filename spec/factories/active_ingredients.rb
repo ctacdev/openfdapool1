@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :active_ingredient do
-    name "MyString"
+    sequence(:name) { |n| "Ingredient #{n}" }
   end
 
 end

@@ -11,7 +11,10 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 #Unit Tests
-Rails.application.config.assets.precompile += %w( qunit.css )
-Rails.application.config.assets.precompile += %w( test_helper.css )
-Rails.application.config.assets.precompile += %w( qunit.js )
-Rails.application.config.assets.precompile += %w( test_helper.js )
+Rails.application.config.assets.precompile += %w( jquery-ui.css
+                                                  qunit.css
+                                                  test_helper.css
+
+                                                  jquery-ui.js
+                                                  qunit.js
+                                                  test_helper.js )

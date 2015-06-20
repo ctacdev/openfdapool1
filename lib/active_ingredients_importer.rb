@@ -18,6 +18,8 @@ class ActiveIngredientsImporter
 
   private
 
+  # Due to API limitations we can only get 1000 results from the count query.
+  # Adding a skip parameter causes an error response from the API.
   def fetch_term_counts
     Faraday.get("#{BASE_URL}?count=openfda.substance_name.exact&limit=1000").
       body

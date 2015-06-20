@@ -24,4 +24,10 @@ RSpec.describe ActiveIngredientsImporter do
     expect { ActiveIngredientsImporter.fetch_ingredients_from_openfda }.
       to change { ActiveIngredient.count }.by(1)
   end
+
+  it "should udpate the count for an existing ingredient" do
+    existing_ingredient = FactoryGirl.create :active_ingredient, name: "OCTINOXATE", count: 1
+    ActiveIngredientsImporter.fetch_ingredients_from_openfda
+    expect(existing_ingredient.reload.count).to eq(3413)
+  end
 end

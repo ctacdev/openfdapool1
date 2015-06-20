@@ -5,8 +5,10 @@ class ActiveIngredientsImporter
   BASE_URL = "https://api.fda.gov/drug/label.json"
   def import_ingredients
     get_term_counts.map do |term_with_count|
-      ActiveIngredient.find_or_create_by name: term_with_count.fetch("term"),
-                                         count: term_with_count.fetch("count")
+      new_ingredient = ActiveIngredient.where(name: term_with_count.fetch("term")).
+        first_or_initialize
+      new_ingredient.count = term_with_count.fetch("count")
+      new_ingredient.save
     end
   end
 

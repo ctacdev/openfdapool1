@@ -38,6 +38,13 @@ Javascript Unit tests are provided by [QUnitJs](http://qunitjs.com). Test report
 
 Tests are located in /test/javascript/<testName>.js
 
+Continuous Integration (CI) Server
+----------------------------------
+
+[![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
+
+[Jenkins CI Server](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
+
 Issues
 -------------
 

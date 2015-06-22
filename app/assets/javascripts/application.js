@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require bootstrap-sprockets
+//= require autocomplete
 //= require_tree .

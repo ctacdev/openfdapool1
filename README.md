@@ -41,7 +41,9 @@ Tests are located in /test/javascript/<testName>.js
 Continuous Integration (CI) Server
 ----------------------------------
 
-[![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
+Development Snapshot: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA)
+
+Stable Release: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA Release)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA Release)
 
 [Jenkins CI Server](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
 

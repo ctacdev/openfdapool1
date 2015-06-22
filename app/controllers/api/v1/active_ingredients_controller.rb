@@ -3,6 +3,6 @@ class Api::V1::ActiveIngredientsController < Api::V1::ApiController
     search = params[:q]
     @active_ingredients = ActiveIngredient.where("name LIKE ?", "#{search}%").
       order("name desc")
-    render json: @active_ingredients
+    render json: {results: @active_ingredients}.to_json
   end
 end

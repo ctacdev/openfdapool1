@@ -16,5 +16,6 @@ Rails.application.config.assets.precompile += %w( jquery-ui.css
                                                   test_helper.css
 
                                                   jquery-ui.js
+                                                  autocomplete.js
                                                   qunit.js
                                                   test_helper.js )

@@ -77,3 +77,5 @@ nbproject/
 # Environment files that may contain sensitive data
 .env
 .powenv
+.env.web
+.env.db

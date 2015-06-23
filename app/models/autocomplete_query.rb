@@ -22,7 +22,7 @@ class AutocompleteQuery
 
   def results
     ActiveIngredient.
-      where("name LIKE ?", "#{query}%").
+      name_starts_with(query).
       limit(results_limit).
       offset(skip_count).
       order(sort_options)

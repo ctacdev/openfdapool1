@@ -43,7 +43,7 @@ d3.json("/api/v1/active_ingredients.json?sort=count&limit=100&sort_dir=desc", fu
               d3.select('#substance').attr('value',d.className);
       })
       .on("mouseover", function(d) {
-              tooltip.text(d.className + ": " + format(d.value));
+              tooltip.text(d.className + ": found in " + format(d.value) + " FDA labeled products");
               tooltip.style("visibility", "visible");
       })
       .on("mousemove", function() {

@@ -12,6 +12,7 @@ Rails.application.config.assets.version = '1.2'
 
 #Unit Tests
 Rails.application.config.assets.precompile += %w( jquery-ui.css
+                                                  style.css
                                                   qunit.css
                                                   test_helper.css
                                                   d3-themes.css

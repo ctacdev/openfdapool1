@@ -1,10 +1,13 @@
 class Api::V1::ActiveIngredientsController < Api::V1::ApiController
   def index
-    search = params[:q]
-    @active_ingredients = ActiveIngredient.where("name LIKE ?", "#{search}%").
-      order("name desc")
-    render json: {
-      results: @active_ingredients.as_json(only: [:name, :count, :id])
-    }
+    @active_ingredients = AutocompleteQuery.search(search_options)
+
+    render json: @active_ingredients
+  end
+
+  private
+
+  def search_options
+    params.slice(:limit, :skip, :sort, :sort_dir).merge query: params[:q]
   end
 end

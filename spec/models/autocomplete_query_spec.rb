@@ -22,8 +22,7 @@ RSpec.describe AutocompleteQuery, type: :model do
     end
 
     it "should skip the specified number of results" do
-      skipped_ingredient = FactoryGirl.create :active_ingredient, name: "A"
-      included_ingredient = FactoryGirl.create :active_ingredient, name: "B"
+      FactoryGirl.create_list :active_ingredient, 2
       results = AutocompleteQuery.search({skip:1, sort: "name"})["results"]
       expect(results.length).
         to eq(1)

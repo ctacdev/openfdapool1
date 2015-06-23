@@ -31,7 +31,7 @@ RSpec.describe AutocompleteQuery, type: :model do
 
     it "should sort the results by the specified column" do
       FactoryGirl.create_list :active_ingredient, 2
-      results = AutocompleteQuery.search(sort: "count")["results"]
+      results = AutocompleteQuery.search(sort: "count", sort_dir: "desc")["results"]
       expect(results.first["count"]).to be > results.last["count"]
     end
 

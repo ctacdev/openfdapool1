@@ -8,6 +8,6 @@ class Api::V1::ActiveIngredientsController < Api::V1::ApiController
   private
 
   def search_options
-    params.slice(:limit, :skip, :sort).merge query: params[:q]
+    params.slice(:limit, :skip, :sort, :sort_dir).merge query: params[:q]
   end
 end

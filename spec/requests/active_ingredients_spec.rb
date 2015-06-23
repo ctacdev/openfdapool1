@@ -43,6 +43,12 @@ describe "ActiveIngredients API" do
     expect(json["results"].length).to eq(1)
   end
 
+  it "should sort the results based on the sort param" do
+    FactoryGirl.create_list :active_ingredient, 2
+    get "/api/v1/active_ingredients?sort=count"
+    expect(json["results"].first["count"]).to be > json["results"].last["count"]
+  end
+
   private
 
   def json

@@ -11,32 +11,33 @@ RSpec.describe AutocompleteQuery, type: :model do
       included_ingredient = FactoryGirl.create :active_ingredient,
         name: "ACETOMINOPHEN"
       excluded_ingredient = FactoryGirl.create :active_ingredient
-      expect(AutocompleteQuery.search({query: "ACE"})["results"].length).
-        to eq(1)
+      results = AutocompleteQuery.search(query: "ACE")["results"]
+      expect(results.length).to eq(1)
+      expect(results.map(&:name)).to include(included_ingredient.name)
     end
 
     it "should limit the number of results returned when passed a limit" do
       FactoryGirl.create_list :active_ingredient, 2
-      expect(AutocompleteQuery.search({limit: 1})["results"].length).
+      expect(AutocompleteQuery.search(limit: 1)["results"].length).
         to eq(1)
     end
 
     it "should skip the specified number of results" do
       FactoryGirl.create_list :active_ingredient, 2
-      results = AutocompleteQuery.search({skip:1, sort: "name"})["results"]
+      results = AutocompleteQuery.search(skip:1, sort: "name")["results"]
       expect(results.length).
         to eq(1)
     end
 
     it "should sort the results by the specified column" do
       FactoryGirl.create_list :active_ingredient, 2
-      results = AutocompleteQuery.search({sort: "count"})["results"]
+      results = AutocompleteQuery.search(sort: "count")["results"]
       expect(results.first["count"]).to be > results.last["count"]
     end
 
     context "results metadata" do
       let(:metadata) {
-        AutocompleteQuery.search({limit: 10, skip: 1})["meta"]["results"]
+        AutocompleteQuery.search(limit: 10, skip: 1)["meta"]["results"]
       }
 
       it "should include the limit" do

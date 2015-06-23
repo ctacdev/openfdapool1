@@ -24,7 +24,8 @@ class AutocompleteQuery
     ActiveIngredient.
       where("name LIKE ?", "#{query}%").
       limit(results_limit).
-      offset(skip_count)
+      offset(skip_count).
+      order(sort_options)
   end
 
   def meta_data
@@ -33,7 +34,8 @@ class AutocompleteQuery
         "limit" => results_limit,
         "total" => ActiveIngredient.count,
         "skip"  => skip_count,
-        "count" => results.count
+        "count" => results.count,
+        "sort"  => sort_options
       }
     }
   end
@@ -48,5 +50,9 @@ class AutocompleteQuery
 
   def skip_count
     options.fetch(:skip, 0)
+  end
+
+  def sort_options
+    "#{options.fetch(:sort, "name")} desc"
   end
 end

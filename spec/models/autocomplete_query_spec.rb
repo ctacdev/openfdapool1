@@ -22,13 +22,17 @@ RSpec.describe AutocompleteQuery, type: :model do
     end
 
     it "should skip the specified number of results" do
-      skipped_ingredient = FactoryGirl.create :active_ingredient
-      included_ingredient = FactoryGirl.create :active_ingredient
-      results = AutocompleteQuery.search({skip:1})["results"]
+      skipped_ingredient = FactoryGirl.create :active_ingredient, name: "A"
+      included_ingredient = FactoryGirl.create :active_ingredient, name: "B"
+      results = AutocompleteQuery.search({skip:1, sort: "name"})["results"]
       expect(results.length).
         to eq(1)
-      expect(results.map(&:name)).to include(included_ingredient.name)
-      expect(results.map(&:name)).to_not include(skipped_ingredient)
+    end
+
+    it "should sort the results by the specified column" do
+      FactoryGirl.create_list :active_ingredient, 2
+      results = AutocompleteQuery.search({sort: "count"})["results"]
+      expect(results.first["count"]).to be > results.last["count"]
     end
 
     context "results metadata" do

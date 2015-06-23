@@ -49,6 +49,8 @@ $(function () {
       $("#substance-count").html(ui.item.count);
       $("#substance-percentage").html(substancePercentage(ui.item.count));
 
+      FDA.Labels.findWithIngredient(ui.item.value);
+
       return false;
     }
   }).autocomplete("instance")._renderItem = function (ul, item) {

@@ -18,4 +18,6 @@ Rails.application.config.assets.precompile += %w( jquery-ui.css
                                                   jquery-ui.js
                                                   autocomplete.js
                                                   qunit.js
-                                                  test_helper.js )
+                                                  test_helper.js
+                                                  fda_labels.js
+                                                  handlebars-v3.0.3.js)

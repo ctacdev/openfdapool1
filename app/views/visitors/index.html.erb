@@ -10,3 +10,20 @@
     This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
   </p>
 </div>
+
+<ol id="label-items">
+
+</ol>
+
+<script id="label-template" type="x-handlebars-template">​
+   {{#each this}}​
+    <li class="drug">
+      <h2 class="brand-name">{{openfda.brand_name}}</h2>
+      <div class="active-ingredients">
+        {{#each openfda.substance_name}}
+          <div class="active-ingredient">{{this}}</div>
+        {{/each}}
+      </div>
+    </li>​
+    {{/each}}
+​</script> 

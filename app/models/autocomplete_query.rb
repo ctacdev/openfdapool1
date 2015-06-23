@@ -53,6 +53,6 @@ class AutocompleteQuery
   end
 
   def sort_options
-    "#{options.fetch(:sort, "name")} desc"
+    "#{options.fetch(:sort, "name")} #{options.fetch(:sort_dir, "asc")}"
   end
 end

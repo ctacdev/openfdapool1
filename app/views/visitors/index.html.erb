@@ -19,7 +19,9 @@
    {{#each this}}​
     <li class="drug">
       <h2 class="brand-name">{{openfda.brand_name}}</h2>
+      <div class="product-type">Product Type: {{openfda.product_type}}</div>
       <div class="active-ingredients">
+        <h3 class="active-ingredients-header">Active Ingredients</h3>
         {{#each openfda.substance_name}}
           <div class="active-ingredient">{{this}}</div>
         {{/each}}

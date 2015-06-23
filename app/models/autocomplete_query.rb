@@ -1,5 +1,5 @@
 class AutocompleteQuery
-  attr_reader :relation, :options
+  attr_reader :options
 
   DEFAULT_RESULTS_LIMIT = 1000
 

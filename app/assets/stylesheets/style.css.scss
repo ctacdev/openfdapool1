@@ -51,9 +51,19 @@ h1 {color: $dkBlue;}
 	font-weight: 300;
 }
 
+.logo-on-white {
+		background-color: #fff;
+		color: $dkBlue;
+		margin-bottom: 15px;
+}
+
 /* general styles */
 
 body, h2, h3, h4, p, a {color: $textColor;}
+
+.search h1 {text-align: center;}
+
+/* style-guide */
 
 .style-guide {
 	padding-top: 70px;
@@ -72,7 +82,6 @@ code {margin-bottom: 15px;}
 
 .logo-specs {
 	.logo, .logo-on-white {
-		font-size: 95px;
 		margin-bottom: 15px;
 		margin-top: 15px;
 		margin-left: 40px;

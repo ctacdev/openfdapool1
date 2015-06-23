@@ -14,9 +14,12 @@ Rails.application.config.assets.version = '1.1'
 Rails.application.config.assets.precompile += %w( jquery-ui.css
                                                   qunit.css
                                                   test_helper.css
+                                                  bootstrap-carousel.css
+                                                  d3-themes.css
 
                                                   jquery-ui.js
                                                   d3.js
                                                   autocomplete.js
                                                   qunit.js
+                                                  fda-d3-charts.js
                                                   test_helper.js )

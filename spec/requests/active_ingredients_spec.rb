@@ -31,6 +31,20 @@ describe "ActiveIngredients API" do
     expect(json["results"].length).to eq(2)
   end
 
+  it "should limit the number of results returned based on the limit param" do
+    FactoryGirl.create_list :active_ingredient, 2
+    get "/api/v1/active_ingredients?limit=1"
+    expect(json["results"].length).to eq(1)
+  end
+
+  it "should skip results based on the skip param" do
+    FactoryGirl.create_list :active_ingredient, 2
+    get "/api/v1/active_ingredients?skip=1"
+    expect(json["results"].length).to eq(1)
+  end
+
+  private
+
   def json
     JSON.parse response.body
   end

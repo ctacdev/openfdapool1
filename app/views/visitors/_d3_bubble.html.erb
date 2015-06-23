@@ -39,6 +39,9 @@ d3.json("/api/v1/active_ingredients.json?sort=count&limit=100&sort_dir=desc", fu
   node.append("circle")
       .attr("r", function(d) { return d.r; })
 	   .style("fill", function(d) { return color(Math.round(parseInt(d.value)/100)); })
+      .on("click", function(d) {
+              d3.select('#substance').attr('value',d.className);
+      })
       .on("mouseover", function(d) {
               tooltip.text(d.className + ": " + format(d.value));
               tooltip.style("visibility", "visible");

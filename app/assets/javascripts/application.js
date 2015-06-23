@@ -15,5 +15,4 @@
 //= require jquery-ui
 //= require d3
 //= require bootstrap-sprockets
-//= require autocomplete
 //= require_tree .

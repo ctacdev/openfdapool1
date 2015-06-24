@@ -11,12 +11,23 @@
   </p>
 </div>
 
-<ol id="label-items">
-
-</ol>
+<div id="items"></div>
 
 <script id="label-template" type="x-handlebars-template">​
-   {{#each this}}​
+  <ul>
+  {{#paginate meta.results type="previous"}}
+    <li {{#if disabled}} class="disabled"{{/if}}>
+      <a href="#" data-page="{{n}}" class="paginationLink">Prev</a>
+    </li>
+  {{/paginate}}
+  {{#paginate meta.results type="next"}}
+    <li {{#if disabled}} class="disabled"{{/if}}>
+      <a href="#" data-page="{{n}}" class="paginationLink">Next</a>
+    </li>
+  {{/paginate}}
+  </ul>
+  <ol id="label-items">
+  {{#each results}}​
     <li class="drug">
       <h2 class="brand-name">{{openfda.brand_name}}</h2>
       <div class="product-type">Product Type: {{openfda.product_type}}</div>
@@ -27,5 +38,6 @@
         {{/each}}
       </div>
     </li>​
-    {{/each}}
+  {{/each}}
+  </ol>
 ​</script> 

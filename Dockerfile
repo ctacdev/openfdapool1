@@ -19,5 +19,5 @@ ADD . $APP_HOME
 
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 
-EXPOSE 80
-CMD ["bin/rails", "server", "-e", "production", "--port", "3000", "--binding", "0.0.0.0"]
+EXPOSE 3000
+CMD ["foreman", "start", "-e", ".env.production", "web"]

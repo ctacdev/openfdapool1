@@ -1,3 +1,11 @@
+$(function() {
+  $("#items").on("click", "a.paginationLink", function(e) {
+    var pageNumber = $(this).data("page");
+    FDA.Labels.findWithIngredient($("#substance").val(), {page: pageNumber});
+    e.preventDefault;
+  });
+});
+
 $(function () {
   var exampleNumberOfListings = 74582.0;
 
@@ -48,6 +56,8 @@ $(function () {
       $("#substance-id").val(ui.item.value);
       $("#substance-count").html(ui.item.count);
       $("#substance-percentage").html(substancePercentage(ui.item.count));
+
+      FDA.Labels.findWithIngredient(ui.item.value);
 
       return false;
     }

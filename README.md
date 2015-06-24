@@ -1,23 +1,18 @@
-Openfda Rfq
-================
+# FDA PharmaQuery #
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Our <a href="https://openfda.ctacdev.com" target="_blank">working prototype</a>.
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+---
 
-Problems? Issues?
------------
+## Description ##
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+[Insert the 750-word required synopsis here.]
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+## Continuous Integration (CI) Server ##
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+[Jenkins CI Server](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
 
-Ruby on Rails
--------------
+## Ruby on Rails ##
 
 This application requires:
 
@@ -26,34 +21,38 @@ This application requires:
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
-Getting Started
----------------
+## Getting Started ##
 
-Documentation and Support
--------------------------
+## Documentation and Support ##
 
-Testing
--------
+## Testing ##
+
 Javascript Unit tests are provided by [QUnitJs](http://qunitjs.com). Test reports can be accessed at [http://localhost:3000/qunit](http://localhost:3000/qunit) assuming you're running the application locally.
 
 Tests are located in /test/javascript/<testName>.js
 
-Continuous Integration (CI) Server
-----------------------------------
+## Open Source Technologies Used ##
 
-[Jenkins CI Server](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
+The baseline [Ruby on Rails](http://rubyonrails.org/) application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
+provided by the [RailsApps Project](http://railsapps.github.io/).
 
-Issues
--------------
+Leverages the [Bootstrap](http://getbootstrap.com) CSS framework.
 
-Similar Projects
-----------------
+The [Sass](http://sass-lang.com/) CSS extension language is used for styling.
 
-Contributing
-------------
+Uses components of [jQuery UI](http://jqueryui.com).
 
-Credits
--------
+Renders visualization generated using the [D3.js](http://d3js.org/) visualization library.
 
-License
--------
+Relational database services are provided by [MySQL](http://www.mysql.com/) in development and production, and [SQLite](https://www.sqlite.org/) in the continuous integration layer.
+
+[TODO: QUnit]
+[TODO: Rspec]
+
+[Jenkins](https://jenkins-ci.org/) provides continuous integration and delivery of successful candidate builds to the [Docker](https://www.docker.com/) container platform.
+
+License attribution has been provided, where applicable, in the binary distribution.Issues
+
+## Credits ##
+
+## License ##

@@ -7,7 +7,7 @@ db:
 
 web:
     build: .
-    command: bin/rails server --port 3000 --binding 0.0.0.0
+    command: bin/rails server -e development --port 3000 --binding 0.0.0.0
     ports:
       - "80:3000"
     links:

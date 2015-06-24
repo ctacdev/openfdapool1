@@ -39,27 +39,8 @@ $(function () {
         response(formattedData);
       });
     },
-    change: function (_, ui) {
-      if (ui.item === null) {
-        $(".details").hide();
-      }
-    },
-    focus: function (_, ui) {
-      $("#substance").val(ui.item.label);
-      return false;
-    },
-    select: function (_, ui) {
-      $(".details").show();
-
-      $("#substance").val(ui.item.label);
-      $("#substance-label").html(ui.item.label);
-      $("#substance-id").val(ui.item.value);
-      $("#substance-count").html(ui.item.count);
-      $("#substance-percentage").html(substancePercentage(ui.item.count));
-
-      FDA.Labels.findWithIngredient(ui.item.value);
-
-      return false;
+    select: function(_, ui) {
+      FDA.Labels.findWithIngredient(ui.item.label);
     }
   }).autocomplete("instance")._renderItem = function (ul, item) {
     return $("<li>")

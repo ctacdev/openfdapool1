@@ -103,7 +103,9 @@ $(function () {
           return color(Math.round(parseInt(d.value, 10) / 100));
         })
         .on("click", function (d) {
-          d3.select(input_box_selector).attr('value', d.className);
+          console.log("d3 element clicked", d);
+          $(input_box_selector).val(d.className);
+          FDA.Labels.findWithIngredient(d.className);
         })
         .on("mouseover", function (d) {
           tooltip.text(d.className + ": found in " + format(d.value) + " FDA labeled products")

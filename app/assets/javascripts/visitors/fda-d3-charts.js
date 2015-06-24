@@ -103,7 +103,6 @@ $(function () {
           return color(Math.round(parseInt(d.value, 10) / 100));
         })
         .on("click", function (d) {
-          console.log("d3 element clicked", d);
           $(input_box_selector).val(d.className);
           FDA.Labels.findWithIngredient(d.className);
         })

@@ -1,13 +1,20 @@
-$(function() {
+$(function () {
+  var exampleNumberOfListings = 74582.0;
+
   $("#items").on("click", "a.paginationLink", function(e) {
     var pageNumber = $(this).data("page");
     FDA.Labels.findWithIngredient($("#substance").val(), {page: pageNumber});
     e.preventDefault;
+    return false;
   });
-});
 
-$(function () {
-  var exampleNumberOfListings = 74582.0;
+  function updateDetails(ui) {
+    $("#substance-count").html(ui.item.count);
+    $("#substance-label").html(ui.item.label);
+    $("#substance-percentage").html(substancePercentage(ui.item.count));
+    $("#collection-total").html(exampleNumberOfListings);
+    $(".details").show();
+  }
 
   function substancePercentage(count) {
     var percent = count / exampleNumberOfListings;
@@ -40,6 +47,7 @@ $(function () {
       });
     },
     select: function(_, ui) {
+      updateDetails(ui);
       FDA.Labels.findWithIngredient(ui.item.label);
     }
   }).autocomplete("instance")._renderItem = function (ul, item) {

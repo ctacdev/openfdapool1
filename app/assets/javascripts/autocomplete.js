@@ -1,7 +1,6 @@
 $(function() {
   $("#items").on("click", "a.paginationLink", function(e) {
     var pageNumber = $(this).data("page");
-    console.log("Fetching page", pageNumber);
     FDA.Labels.findWithIngredient($("#substance").val(), {page: pageNumber});
     e.preventDefault;
   });

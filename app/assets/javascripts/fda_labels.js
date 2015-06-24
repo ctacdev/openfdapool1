@@ -70,6 +70,25 @@ Handlebars.registerHelper('paginate', function(metadata, options) {
       }
       ret = ret + options.fn(newContext);
       break;
+    case "numbers":
+      var limit = 5;
+      var i = 0;
+      var leftCount = Math.ceil(limit / 2) - 1;
+      var rightCount = limit - leftCount - 1;
+      if (currentPage + rightCount > pageCount)
+        leftCount = limit - (pageCount - currentPage) - 1;
+      if (currentPage - leftCount < 1)
+        leftCount = currentPage - 1;
+      var start = currentPage - leftCount;
+
+      while (i < limit && i < pageCount) {
+        newContext = { n: start };
+        if (start === currentPage) newContext.active = true;
+        ret = ret + options.fn(newContext);
+        start++;
+        i++;
+      }
+      break;
   }
 
   return ret;

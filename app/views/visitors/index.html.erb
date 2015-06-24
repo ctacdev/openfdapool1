@@ -14,3 +14,45 @@
     This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
   </p>
 </div>
+
+<div id="items"></div>
+
+<script id="label-template" type="x-handlebars-template">​
+  <nav>
+    <ul class="pagination">
+    {{#paginate meta.results type="previous"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" class="paginationLink" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="numbers"}}
+      <li {{#if active}}class="active"{{/if}}>
+        <a href="#" data-page="{{n}}" class="paginationLink">{{n}}</a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="next"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" class="paginationLink" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    </ul>
+  </nav>
+  <ol id="label-items">
+  {{#each results}}​
+    <li class="drug">
+      <h2 class="brand-name">{{openfda.brand_name}}</h2>
+      <div class="product-type">Product Type: {{openfda.product_type}}</div>
+      <div class="active-ingredients">
+        <h3 class="active-ingredients-header">Active Ingredients</h3>
+        {{#each openfda.substance_name}}
+          <div class="active-ingredient">{{this}}</div>
+        {{/each}}
+      </div>
+    </li>​
+  {{/each}}
+  </ol>
+​</script> 

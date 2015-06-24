@@ -15,4 +15,5 @@
 //= require jquery-ui
 //= require d3
 //= require bootstrap-sprockets
+//= require handlebars-v3.0.3
 //= require_tree .

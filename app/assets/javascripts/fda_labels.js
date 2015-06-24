@@ -48,10 +48,10 @@ window.FDA.Templates = {
 };
 
 Handlebars.registerHelper('paginate', function(metadata, options) {
-  var pageCount = FDA.Helpers.pageCount(metadata);
-  var currentPage = FDA.Helpers.currentPage(metadata);
-  var newContext = {};
-  var ret = "";
+  var pageCount = FDA.Helpers.pageCount(metadata),
+    currentPage = FDA.Helpers.currentPage(metadata),
+    newContext = {},
+    ret = "";
   if(options.hash.pagesShown) pagesShown = +options.hash.pagesShown;
   switch(options.hash.type){
     case "previous":
@@ -71,10 +71,10 @@ Handlebars.registerHelper('paginate', function(metadata, options) {
       ret = ret + options.fn(newContext);
       break;
     case "numbers":
-      var limit = 5;
-      var i = 0;
-      var leftCount = Math.ceil(limit / 2) - 1;
-      var rightCount = limit - leftCount - 1;
+      var limit = 5,
+        i = 0,
+        leftCount = Math.ceil(limit / 2) - 1,
+        rightCount = limit - leftCount - 1;
       if (currentPage + rightCount > pageCount)
         leftCount = limit - (pageCount - currentPage) - 1;
       if (currentPage - leftCount < 1)

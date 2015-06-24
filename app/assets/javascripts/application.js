@@ -16,6 +16,4 @@
 //= require d3
 //= require bootstrap-sprockets
 //= require handlebars-v3.0.3
-//= require fda_labels
-//= require autocomplete
 //= require_tree .

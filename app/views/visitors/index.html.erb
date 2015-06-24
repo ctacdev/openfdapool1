@@ -1,19 +1,30 @@
 <h1>FDA PharmaQuery</h1>
 
-<%= render 'carousel' %>
-
-<hr/>
-
-<input id="substance">
-<input type="hidden" id="substance-id">
-<div class="details" style="display: none">
-  <p id="substance-details">
-    There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
-  </p>
-  <p id="collection-details">
-    This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
-  </p>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 col-sm-4
+  col-sm-offset-4 col-lg-4 col-lg-offset-4 col-xs-4 col-xs-offset-4">
+      <div class="bubblecharttooltip"></div>
+      <div id="bubblechartcontainer"></div>
+  </div>
 </div>
+
+<div class="row">
+  <div class="col-lg-12">
+    <input id="substance">
+    <input type="hidden" id="substance-id">
+    <div class="details" style="display: none">
+      <p id="substance-details">
+        There are <span id="substance-count"></span> labels whose ingredients
+        contain <span id="substance-label"></span>.
+      </p>
+      <p id="collection-details">
+        This represents <span id="substance-percentage"></span>% of the
+        <span id="collection-total"></span> labels in the system.
+      </p>
+    </div>
+  </div>
+</div>
+
 
 <div id="items"></div>
 

@@ -1,3 +1,27 @@
 .bubble {
 	font-size: 10px;
 }
+
+#bubblechartcontainer{
+  position: relative ;
+  top: 50px;	
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (max-width : 800px){
+	
+	#bubblechartcontainer{
+	  top: 20px;
+	}
+}
+
+@media (max-width : 600px){
+	
+	#bubblechartcontainer{
+	  top: 0px;
+	}
+	
+}
+

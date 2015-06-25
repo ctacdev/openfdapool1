@@ -1,6 +1,4 @@
 $(function () {
-  // var exampleNumberOfListings = 74582.0;
-
   $("#items").on("click", "a.paginationLink", function(e) {
     var pageNumber = $(this).data("page"),
       substance = $(this).data("substance");

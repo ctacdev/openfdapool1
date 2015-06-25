@@ -109,3 +109,25 @@ code {margin-bottom: 15px;}
 .color-sample-2 {background-color: $beige;}
 .color-sample-3 {background-color: $orange;}
 
+/* portal page */
+
+.gallery .row {margin-top: 40px;}
+
+.widget {margin-bottom: 15px;}
+
+.widget-icon {
+  border-radius: 3px;
+  display: block;
+  height: 200px;
+  margin: auto;
+  width: 200px;
+}
+
+.widget-1 {
+  background-color: red;
+}
+
+.widget-2, .widget-3, .widget-4,
+.widget-5, .widget-6 {
+  background-color: #ddd;
+}

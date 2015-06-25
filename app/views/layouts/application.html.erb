@@ -16,7 +16,7 @@
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
-       <%= yield %>
+       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
     <footer>
       <span id="version"><%= APP_VERSION if defined? APP_VERSION %></span>

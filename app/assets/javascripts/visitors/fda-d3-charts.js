@@ -1,8 +1,4 @@
 $(function () {
-  $('.carousel').carousel({
-    interval: 100000
-  });
-
   // Returns a flattened hierarchy containing all leaf nodes under the root.
   function classes(root, node_limit) {
     var classes_list = [];
@@ -39,12 +35,12 @@ $(function () {
       resize_chart,
 
       current_svg_width = parseInt(bubble_svg.attr("width") || 0, 10),
-      parent_width = $('.carousel-inner').width(),
+      parent_width = $(bubble_selector).width(),
       resize_threshold = 50,
-      max_diameter = 450,
+      max_diameter = parent_width,
 
-      diameter = Math.round(parent_width / 2),
-      array_limit,
+      diameter = Math.round(parent_width),
+      api_limit,
 
       format = d3.format(",d"),
       color = d3.scale.category20c(),
@@ -85,6 +81,7 @@ $(function () {
       .attr("height", diameter)
       .attr("class", "bubble");
 
+
 	var node = new_svg
        .selectAll(".node")
        .data(bubble
@@ -108,7 +105,8 @@ $(function () {
          return color(Math.round(parseInt(d.value, 10) / 100));
        })
        .on("click", function (d) {
-         d3.select(input_box_selector).attr('value', d.className);
+         $(input_box_selector).val(d.className);
+         FDA.Labels.findWithIngredient(d.className);
        })
        .on("mouseover", function (d) {
          tooltip.text(d.className + ": found in " + format(d.value) + " FDA labeled products");

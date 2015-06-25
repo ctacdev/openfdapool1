@@ -108,7 +108,16 @@ code {margin-bottom: 15px;}
 
 .gallery .row {margin-top: 40px;}
 
-.widget {margin-bottom: 50px;}
+.widget {
+  height: 275px;
+  margin-bottom: 25px;
+  p {
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 200px;
+  }
+}
 
 .widget-icon {
   border-radius: 3px;
@@ -120,6 +129,18 @@ code {margin-bottom: 15px;}
 
 .widget-1 {
   background-color: red;
+}
+
+.widget-2,
+.widget-2:visited
+{
+  background: url('food-widget.png') no-repeat;
+}
+
+.widget-2:focus,
+.widget-2:hover,
+.widget-2:active {
+  background: url('food-widget-hvr.png') no-repeat;
 }
 
 .widget-2, .widget-3, .widget-4,

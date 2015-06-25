@@ -1,0 +1,18 @@
+db:
+    image: library/mysql:5.6.22
+    ports:
+      - "13306:3306"
+    env_file:
+      - '.env.db'
+
+web:
+    build: .
+    command: bin/rails server -e development --port 3000 --binding 0.0.0.0
+    ports:
+      - "80:3000"
+    links:
+      - db
+    volumes:
+      - .:/openfda
+    env_file:
+    - '.env.web'

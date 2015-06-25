@@ -1,12 +1,15 @@
 $(function () {
   // Returns a flattened hierarchy containing all leaf nodes under the root.
-  function classes(root) {
+  function classes(root, node_limit) {
     var classes_list = [];
-
+    var i = 0;
     function recurse(name, node) {
       if (node.results) {
         node.results.forEach(function (child) {
-          recurse(node.name, child);
+          	i = i + 1;
+			if(i < node_limit) {
+				recurse(node.name, child);
+			}
         });
       } else {
         classes_list.push({
@@ -44,7 +47,6 @@ $(function () {
       bubble,
       new_svg,
 
-      api_call = '/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=',
       tooltip = d3.select(".bubblecharttooltip"),
       input_box_selector = '#substance';
 
@@ -63,7 +65,7 @@ $(function () {
       diameter = max_diameter + 1;
     }
 
-    api_limit = Math.round(diameter / 15);
+    array_limit = Math.round(diameter / 15);
 
     bubble = d3
       .layout
@@ -79,63 +81,65 @@ $(function () {
       .attr("height", diameter)
       .attr("class", "bubble");
 
-    d3.json(api_call + api_limit, function (_, root) {
-      var node = new_svg
-        .selectAll(".node")
-        .data(bubble
-          .nodes(classes(root))
-          .filter(function (d) {
-            return !d.children;
-          }))
-        .enter()
-        .append("g")
-        .attr("class", "node")
-        .attr("transform", function (d) {
-          return "translate(" + d.x + "," + d.y + ")";
-        });
 
-      node
-        .append("circle")
-        .attr("r", function (d) {
-          return d.r;
-        })
-        .style("fill", function (d) {
-          return color(Math.round(parseInt(d.value, 10) / 100));
-        })
-        .on("click", function (d) {
-          $(input_box_selector).val(d.className);
-          FDA.Labels.findWithIngredient(d.className);
-        })
-        .on("mouseover", function (d) {
-          tooltip.text(d.className + ": found in " + format(d.value) + " FDA labeled products")
-            .style("visibility", "visible");
-        })
-        .on("mousemove", function () {
-          return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
-        })
-        .on("mouseout", function () {
-          return tooltip.style("visibility", "hidden");
-        });
+	var node = new_svg
+       .selectAll(".node")
+       .data(bubble
+         .nodes(classes(raw_api_json,array_limit))
+         .filter(function (d) {
+           return !d.children;
+         }))
+       .enter()
+       .append("g")
+       .attr("class", "node")
+       .attr("transform", function (d) {
+         return "translate(" + d.x + "," + d.y + ")";
+       });
 
-      node
-        .append("text")
-        .attr("dy", ".3em")
-        .style("text-anchor", "middle")
-        .style("pointer-events", "none")
-        .text(function (d) {
-          var trimmed_text = d.className;
-          if (trimmed_text.length > (d.r / 5)) {
-            trimmed_text = d.className.substring(0, d.r / 4) + "...";
-          }
-          return trimmed_text;
-        });
-    }); // end d3.json call
+     node
+       .append("circle")
+       .attr("r", function (d) {
+         return d.r;
+       })
+       .style("fill", function (d) {
+         return color(Math.round(parseInt(d.value, 10) / 100));
+       })
+       .on("click", function (d) {
+         $(input_box_selector).val(d.className);
+         FDA.Labels.findWithIngredient(d.className);
+       })
+       .on("mouseover", function (d) {
+         tooltip.text(d.className + ": found in " + format(d.value) + " FDA labeled products");
+         tooltip.style("visibility", "visible");
+       })
+       .on("mousemove", function () {
+         return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
+       })
+       .on("mouseout", function () {
+         return tooltip.style("visibility", "hidden");
+       });
+
+     node
+       .append("text")
+       .attr("dy", ".3em")
+       .style("text-anchor", "middle")
+       .style("pointer-events", "none")
+       .text(function (d) {
+         var trimmed_text = d.className;
+         if (trimmed_text.length > (d.r / 5)) {
+           trimmed_text = d.className.substring(0, d.r / 4) + "...";
+         }
+         return trimmed_text;
+       });
 
     d3.select(self.frameElement).style("height", diameter + "px");
   } // end build build_d3_bubble_chart
 
-  build_d3_bubble_chart();
-
-  // for responsive
-  d3.select(window).on('resize', build_d3_bubble_chart);
+  var raw_api_json;
+  $.getJSON("/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=200", function(result){
+      raw_api_json = result;
+	  build_d3_bubble_chart();
+	  // for responsive
+	  d3.select(window).on('resize', build_d3_bubble_chart);
+  });
 });

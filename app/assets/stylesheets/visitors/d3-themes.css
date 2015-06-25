@@ -1,0 +1,33 @@
+.bubble {
+	font-size: 10px;
+}
+
+.bubblecharttooltip {
+  position: absolute;
+  z-index: 10;
+  visibility: hidden;
+  color: white;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 6px;
+  font: 12px sans-serif;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (max-width : 800px){
+
+	#bubblechartcontainer{
+	  top: 20px;
+	}
+}
+
+@media (max-width : 600px){
+
+	#bubblechartcontainer{
+	  top: 0px;
+	}
+
+}
+

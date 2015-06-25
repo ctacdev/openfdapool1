@@ -12,6 +12,8 @@ $(function () {
   $("#items").on("click", "a.substance", function(e) {
     var substance = $(this).data("substance");
     FDA.Labels.findWithIngredient(substance);
+    $("html, body").animate({scrollTop: $("#substance").offset().top-75}, 0);
+    $("#substance").focus();
     e.preventDefault();
     return false;
   })

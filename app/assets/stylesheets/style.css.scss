@@ -59,7 +59,7 @@ body, h2, h3, h4, p, a {color: $textColor;}
 
 /* style-guide */
 .style-guide {
-	padding-top: 70px;
+	padding-top: 50px;
 }
 
 code {margin-bottom: 15px;}
@@ -80,14 +80,10 @@ code {margin-bottom: 15px;}
 		margin-left: 40px;
 		padding-left: 25px;
 		border: 1px solid #fff;
+    font-size: 95px;
 	}
 	.logo {
 		color: #999;
-	}
-	.logo-on-white {
-		background-color: #fff;
-		color: $dkBlue;
-		margin-bottom: 15px;
 	}
 }
 
@@ -112,7 +108,7 @@ code {margin-bottom: 15px;}
 
 .gallery .row {margin-top: 40px;}
 
-.widget {margin-bottom: 15px;}
+.widget {margin-bottom: 50px;}
 
 .widget-icon {
   border-radius: 3px;

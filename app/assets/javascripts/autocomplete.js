@@ -46,6 +46,15 @@ $(function () {
         response(formattedData);
       });
     },
+    change: function (_, ui) {
+      if (ui.item === null) {
+        $(".details").hide();
+      }
+    },
+    focus: function (_, ui) {
+      $("#substance").val(ui.item.label);
+      return false;
+    },
     select: function(_, ui) {
       updateDetails(ui);
       FDA.Labels.findWithIngredient(ui.item.label);

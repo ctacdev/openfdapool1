@@ -19,7 +19,8 @@ window.FDA.Labels = (function($, Handlebars) {
     var pageNumber = 1;
     if(options && options.page) pageNumber = options.page;
     $.get(apiRoot + "?search=(_exists_:openfda.brand_name+AND+" +
-      "openfda.substance_name:" + ingredientName +")" +
+      "openfda.substance_name.exact:\"" + ingredientName.replace(/ /g, "+") +
+      "\")" +
       "&limit=" + defaultPerPage +
       "&skip=" + (pageNumber-1) * defaultPerPage)
       .done(function(data) {

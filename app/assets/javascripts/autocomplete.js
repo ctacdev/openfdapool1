@@ -1,26 +1,20 @@
 $(function () {
-  var exampleNumberOfListings = 74582.0;
+  // var exampleNumberOfListings = 74582.0;
 
   $("#items").on("click", "a.paginationLink", function(e) {
-    var pageNumber = $(this).data("page");
-    FDA.Labels.findWithIngredient($("#substance").val(), {page: pageNumber});
+    var pageNumber = $(this).data("page"),
+      substance = $(this).data("substance");
+    FDA.Labels.findWithIngredient(substance, {page: pageNumber});
     e.preventDefault;
     return false;
   });
 
-  function updateDetails(ui) {
-    $("#substance-count").html(ui.item.count);
-    $("#substance-label").html(ui.item.label);
-    $("#substance-percentage").html(substancePercentage(ui.item.count));
-    $("#collection-total").html(exampleNumberOfListings);
-    $(".details").show();
-  }
-
-  function substancePercentage(count) {
-    var percent = count / exampleNumberOfListings;
-
-    return Math.round(percent * 10000) / 100;
-  }
+  $("#items").on("click", "a.substance", function(e) {
+    var substance = $(this).data("substance");
+    FDA.Labels.findWithIngredient(substance);
+    e.preventDefault();
+    return false;
+  })
 
   function autocompleteFormat(data) {
     return $.map(data.results, function (val) {
@@ -56,14 +50,14 @@ $(function () {
       return false;
     },
     select: function(_, ui) {
-      updateDetails(ui);
+      FDA.Helpers.updateDetails(ui);
       FDA.Labels.findWithIngredient(ui.item.label);
     }
   }).autocomplete("instance")._renderItem = function (ul, item) {
     return $("<li>")
       .append("<a>" + item.label + "<br>" + item.count +
               "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(" +
-              substancePercentage(item.count) + "%)</a>")
+              FDA.Helpers.substancePercentage(item.count) + "%)</a>")
       .appendTo(ul);
   };
 });

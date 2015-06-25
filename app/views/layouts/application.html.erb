@@ -16,5 +16,8 @@
        <%= render 'layouts/messages' %>
        <%= yield %>
     </main>
+    <footer>
+      <span id="version"><%= APP_VERSION if defined? APP_VERSION %></span>
+    </footer>
   </body>
 </html>

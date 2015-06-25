@@ -79,6 +79,7 @@ nbproject/
 .powenv
 .env.web
 .env.db
+.env.production
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

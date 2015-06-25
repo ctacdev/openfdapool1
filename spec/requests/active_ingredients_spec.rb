@@ -1,6 +1,20 @@
 require 'rails_helper'
 
-describe "ActiveIngredients API" do
+RSpec.describe "ActiveIngredients API", type: :request do
+  context "CORS" do
+    it "should set Access-Control-Allow-Origin header to the requesting url" do
+      get "/api/v1/active_ingredients", nil, {'HTTP_ORIGIN' => 'http://example.com'}
+      expect(response.headers["Access-Control-Allow-Origin"]).
+        to eq("http://example.com")
+    end
+
+    it "should set Access-Controll-Allow-Methods to GET, OPTIONS" do
+      get "/api/v1/active_ingredients", nil, {'HTTP_ORIGIN' => 'http://example.com'}
+      expect(response.headers["Access-Control-Allow-Methods"]).
+        to eq("GET, OPTIONS")
+    end
+  end
+
   it "sends a list of active ingredients" do
     FactoryGirl.create_list :active_ingredient, 2
     get "/api/v1/active_ingredients"
@@ -46,7 +60,7 @@ describe "ActiveIngredients API" do
   it "should sort the results based on the sort param" do
     FactoryGirl.create_list :active_ingredient, 2
     get "/api/v1/active_ingredients?sort=count"
-    expect(json["results"].first["count"]).to be < json["results"].last["count"]
+    expect(json["results"].first["count"]).to be <= json["results"].last["count"]
   end
 
   it "should change the sort direction based on the sort_dir param" do

@@ -55,7 +55,11 @@ h1 {color: $dkBlue;}
 
 body, h2, h3, h4, p, a {color: $textColor;}
 
-.search h1 {text-align: center;}
+.skip-link {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
 /* style-guide */
 .style-guide {
@@ -150,3 +154,31 @@ code {margin-bottom: 15px;}
 .widget-5, .widget-6 {
   background-color: #ddd;
 }
+
+/* ingredient browser */
+
+.ingredient-browser .header > div  {
+  a {
+    color: $dkBlue;
+    text-decoration: underline;}
+  background-color: #fff;
+  border: 1px solid #e3e1e1;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 25px;
+  form input {
+    border: 1px solid #e3e1e1;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 0 5px;
+    text-indent: 5px;
+    text-transform: lowercase;
+  }
+  form input::-webkit-input-placeholder {color: $dkBlue;;}
+  form input:-moz-placeholder {color: $dkBlue;;}
+  form input::-moz-placeholder {color: $dkBlue;;}
+  form input:-ms-input-placeholder {color: $dkBlue;;}
+  
+}
+
+.bubble {font-weight: bold;}

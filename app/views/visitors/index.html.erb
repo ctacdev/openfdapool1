@@ -1,31 +1,54 @@
-<h1>The Ingredient Browser</h1>
-<a class="skip-link" href="#ingredient-search">Skip to Ingredient Search</a>
-<p>This visual graphic gives an overall glance at the frequency of occurance of the most common  pharamceutical ingredients used in medications, cosmetics, and consumable products.</p>
-<p>Hover and select a bubble for a list of products that contain the element, or update the input field for a more specific search.</p>
-<div class="bubblecharttooltip"></div>
-
-<div class="container">
-  <div class="row">
-      <div id="bubblechartcontainer"></div>
-  </div>
-</div>
-
-<div class="search container">
-  <div class="row">
-    <div class="col-xs-12">
-     
-      <h1><a name="ingredient-search">Search</a></h1>
-      <input id="substance" class="center-block" role="search">
-      <input type="hidden" id="substance-id">
-      <div class="details" style="display: none">
-        <p id="substance-details">
-          There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
-        </p>
-        <p id="collection-details">
-          This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
-        </p>
+<div class="ingredient-browser">
+ 
+  <div class="header container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h1>The Ingredient Browser</h1>
       </div>
-      <div id="items"></div>
+      <div class="col-sm-7">
+        <div class="skip-link"><a href="#ingredient-search">Skip to Ingredient Search</a></div>
+        <p aria-hidden="true">This visual graphic gives an overall glance of the most common  pharamceutical ingredients used in medications, cosmetics, and consumable products and their frequency of occurance.</p>
+        <p aria-hidden="true">Hover and select a bubble for a list of products that contain the element.</p>
+        <p> Update the input field below to search for specific pharmaceutical ingredients.</p>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="substance">Search for </label>
+            <input id="substance" role="search" placeholder="substance">
+            <input type="hidden" id="substance-id">
+            
+            <!-- We need a way for this link to show after text has been entered so users can skip over the infographic and see the results table right away... for ease-of-use and accessibility -->
+            
+            <a href="#ingredient-search">See results</a>
+            
+            
+          </div>
+        </form>
+        <div class="bubblecharttooltip"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div id="bubblechartcontainer"></div>
+    </div>
+  </div>
+
+  <div class="search container" role="main">
+    <div class="row">
+      <div class="col-xs-12">
+
+        
+        <div class="details" style="display: none">
+          <p id="substance-details">
+            There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
+          </p>
+          <p id="collection-details">
+            This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
+          </p>
+        </div>
+        <div id="items"></div>
+      </div>
     </div>
   </div>
 </div>

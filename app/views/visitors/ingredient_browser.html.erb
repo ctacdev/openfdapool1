@@ -67,14 +67,27 @@
         </div>
         <div class="active-ingredients">
           <h4 class="active-ingredients-header">Active Ingredients</h4>
-          {{#each openfda.substance_name}}
+          {{#slice 0 4 openfda.substance_name}}
             <div class="active-ingredient">
               <a href="#ingredient-search" class="substance"
                 data-substance="{{this}}">
                 {{this}}
               </a>
             </div>
-          {{/each}}
+          {{/slice}}
+          {{#ifMoreItems 5 openfda.substance_name}}
+            <div class="hidden-ingredients hidden">
+            {{#slice 5 0 openfda.substance_name}}
+              <div class="active-ingredient">
+                <a href="#ingredient-search" class="substance"
+                  data-substance="{{this}}">
+                  {{this}}
+                </a>
+              </div>
+            {{/slice}}
+            </div>
+            <a href="javascript: void(0);" class="show-more-ingredients">Show more...</a>
+          {{/ifMoreItems}}
         </div>
       </div>
     {{/each}}

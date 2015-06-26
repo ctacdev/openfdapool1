@@ -10,6 +10,10 @@ window.FDA.Labels = (function($, Handlebars) {
   }
 
   function populateLabelGrid(data) {
+    /* Sort the active ingredients alphabetially here so we don't have to in handlebars */
+    $.each(data.results, function(index, drug) {
+      drug.openfda.substance_name.sort();
+    });
     var labelTemplate = getTemplate("labels");
     $("#items").html(labelTemplate(data));
   }
@@ -136,4 +140,19 @@ Handlebars.registerHelper('grouped_each', function(every, context, options) {
         out += options.fn(subcontext);
     }
     return out;
+});
+
+Handlebars.registerHelper('slice', function(from, to, context, options) {
+  var ret = "";
+  if(to == 0) to = context.length - 1;
+  for(i = from; i <= to; i++) {
+    ret = ret + options.fn(context[i]);
+  }
+  return ret;
+});
+
+Handlebars.registerHelper('ifMoreItems', function(moreThan, context, options){
+  if(context.length > moreThan) {
+    return options.fn(this);
+  }
 });

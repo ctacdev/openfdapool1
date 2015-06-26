@@ -85,3 +85,6 @@ nbproject/
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+#test reports
+spec/reports/

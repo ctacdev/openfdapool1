@@ -10,7 +10,11 @@ Our <a href="https://openfda.ctacdev.com" target="_blank">working prototype</a>.
 
 ## Continuous Integration (CI) Server ##
 
-[Jenkins CI Server](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/)
+Development Snapshot: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA)
+
+[Test Report](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/lastCompletedBuild/testReport/)
+
+Stable Release: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA Release)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA Release)
 
 ## Dependencies ##
 

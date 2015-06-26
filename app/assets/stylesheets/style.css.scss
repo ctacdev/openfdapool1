@@ -37,6 +37,15 @@ body {
 
 code {color: $dkRed;}
 
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+  background-color: $dkBlue;
+  border-color: $dkBlue;
+
+}
+
+.pagination > li > a, .pagination > li > span {color: $dkBlue;}
+
+
 /* logo style */
 
 h1 {color: $dkBlue;}
@@ -178,7 +187,47 @@ code {margin-bottom: 15px;}
   form input:-moz-placeholder {color: $dkBlue;;}
   form input::-moz-placeholder {color: $dkBlue;;}
   form input:-ms-input-placeholder {color: $dkBlue;;}
-  
 }
 
 .bubble {font-weight: bold;}
+
+#ingredient-search {
+  display: block;
+  height: 50px;}
+
+.search {
+  background-color: #fff;
+  border: 1px solid #e3e1e1;
+  border-radius: 3px;
+  .details {
+    background-color: #efefef;
+    margin-bottom: 15px;
+    p {color: #333;}
+    padding: 25px 15px 15px;
+    text-align: center;
+  }
+  h2 {
+    color: #333;
+    text-align: center;
+  }
+  h3, h4 {
+    color: #333;
+    font-weight: bold;
+  }
+  h3 {
+    background-color: #efefef;
+    padding: 5px;
+  }
+  padding: 25px;
+  .product-type > span {text-transform: lowercase;}
+  .active-ingredients a {
+    color: $dkBlue;
+    text-decoration: underline;
+    text-transform: lowercase;
+  }
+  #substance-label {
+    font-weight: bold;
+    text-transform: lowercase;
+  }
+  .search-footer {text-align: center;} 
+}

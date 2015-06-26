@@ -7,7 +7,7 @@
       </div>
       <div class="col-sm-7">
         <div class="skip-link"><a href="#ingredient-search">Skip to Ingredient Search</a></div>
-        <p aria-hidden="true">This visual graphic gives an overall glance of the most common  pharamceutical ingredients used in medications, cosmetics, and consumable products and their frequency of occurance.</p>
+        <p aria-hidden="true">This visual graphic gives an overall glance of the most common  pharamceutical ingredients used in medications, cosmetics, consumable products, and their frequency of occurance.</p>
         <p aria-hidden="true">Hover and select a bubble for a list of products that contain the element.</p>
         <p> Update the input field below to search for specific pharmaceutical ingredients.</p>
         <form class="form-inline">
@@ -33,12 +33,11 @@
         <div id="bubblechartcontainer"></div>
     </div>
   </div>
-
+  <a id="ingredient-search"></a>
   <div class="search container" role="main">
     <div class="row">
       <div class="col-xs-12">
-
-        
+        <h2>Results</h2>
         <div class="details" style="display: none">
           <p id="substance-details">
             There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
@@ -54,7 +53,35 @@
 </div>
 
 <script id="label-template" type="x-handlebars-template">
-  <nav>
+ 
+
+  <div id="item-labels">
+  {{#grouped_each 3 results}}
+    <div class="row">
+    {{#each this}}
+      <div class="col-sm-4 item">
+        <h3 class="brand-name">{{openfda.brand_name}}</h3>
+        <div class="product-type">
+          <h4>Product Type</h4>
+          <span>{{openfda.product_type}}</span>
+        </div>
+        <div class="active-ingredients">
+          <h4 class="active-ingredients-header">Active Ingredients</h4>
+          {{#each openfda.substance_name}}
+            <div class="active-ingredient">
+              <a href="#" class="substance" data-substance="{{this}}">
+                {{this}}
+              </a>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  {{/grouped_each}}
+  </div>
+  
+   <div class="search-footer">
     <ul class="pagination">
     {{#paginate meta.results type="previous"}}
       <li {{#if disabled}} class="disabled"{{/if}}>
@@ -80,32 +107,6 @@
       </li>
     {{/paginate}}
     </ul>
-  </nav>
-
-  <div id="item-labels">
-  {{#grouped_each 3 results}}
-    <div class="row">
-    {{#each this}}
-      <div class="col-lg-4  col-md-4 col-sm-4 item">
-        <h2 class="brand-name">{{openfda.brand_name}}</h2>
-        <div class="product-type">
-          <h3>Product Type</h3>
-          <span>{{openfda.product_type}}</span>
-        </div>
-        <div class="active-ingredients">
-          <h3 class="active-ingredients-header">Active Ingredients</h3>
-          {{#each openfda.substance_name}}
-            <div class="active-ingredient">
-              <a href="#" class="substance" data-substance="{{this}}">
-                {{this}}
-              </a>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-    {{/each}}
-    </div>
-  {{/grouped_each}}
   </div>
 
 </script>

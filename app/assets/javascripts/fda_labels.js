@@ -12,6 +12,7 @@ window.FDA.Labels = (function($, Handlebars) {
   function populateLabelGrid(data) {
     var labelTemplate = getTemplate("labels");
     $("#items").html(labelTemplate(data));
+    $("html, body").scrollTop($("#ingredient-search").offset().top);
   }
 
   // Public functions

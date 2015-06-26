@@ -46,4 +46,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'sqlite3'
+  gem 'ci_reporter_rspec'
 end

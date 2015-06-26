@@ -20,4 +20,4 @@ ADD . $APP_HOME
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 
 EXPOSE 3000
-CMD ["foreman", "start", "-e", "env.production", "web"]
+CMD ["foreman", "start", "-e", ".env.production", "web"]

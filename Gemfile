@@ -47,4 +47,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'sqlite3'
   gem 'ci_reporter_rspec'
+  gem 'simplecov'
 end

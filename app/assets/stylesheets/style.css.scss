@@ -132,37 +132,34 @@ code {margin-bottom: 15px;}
   }
 }
 
-.widget-icon {
+.widget-icon, .widget-icon:visited
+{
+  background-color: #e5860a;
+  border: 3px solid #e5860a;
   border-radius: 3px;
   display: block;
   height: 200px;
   margin: auto;
+  transition: background-color .2s;
   width: 200px;
 }
 
-.widget-1 {
-  background-color: red;
-}
-
-.widget-2,
-.widget-2:visited
-{
-  background: url('food-widget.png') no-repeat;
-  background-color: #f79311;
-  transition: background-color .2s;
-}
-
-.widget-2:focus,
-.widget-2:hover,
-.widget-2:active {
-  background-color: #f27300;
+.widget-icon:focus,
+.widget-icon:hover,
+.widget-icon:active {
+  background-color: #ff6200;
+  border: 3px solid #f27300;
   transition: background-color .5s;
 }
 
-.widget-2, .widget-3, .widget-4,
-.widget-5, .widget-6 {
-  background-color: #ddd;
-}
+
+.widget-1 {background: url('ingredient-browser-widget.png') no-repeat #f79311;}
+.widget-2 {background: url('food-widget.png') no-repeat #f79311;}
+.widget-3 {background: url('drug-comparison-widget.png') no-repeat #f79311;}
+.widget-4 {background: url('side-effects-widget.png') no-repeat #f79311;}
+.widget-5 {background: url('interactants-widget.png') no-repeat #f79311;}
+.widget-6 {}
+
 
 /* ingredient browser */
 
@@ -188,6 +185,8 @@ code {margin-bottom: 15px;}
   form input::-moz-placeholder {color: $dkBlue;;}
   form input:-ms-input-placeholder {color: $dkBlue;;}
 }
+
+.ui-autocomplete.ui-front .ui-menu-item {}
 
 .bubble {font-weight: bold;}
 

@@ -1,5 +1,5 @@
 <div class="ingredient-browser">
- 
+
   <div class="header container">
     <div class="row">
       <div class="col-sm-5">
@@ -15,15 +15,15 @@
             <label for="substance">Search for </label>
             <input id="substance" role="search" placeholder="substance">
             <input type="hidden" id="substance-id">
-            
+
             <!-- We need a way for this link to show after text has been entered so users can skip over the infographic and see the results table right away... for ease-of-use and accessibility -->
-            
+
             <a href="#ingredient-search">See results</a>
-            
-            
+
+
           </div>
         </form>
-        <div class="bubblecharttooltip"></div>
+
       </div>
     </div>
   </div>
@@ -51,9 +51,9 @@
     </div>
   </div>
 </div>
-
+<div class="bubblecharttooltip"></div>
 <script id="label-template" type="x-handlebars-template">
- 
+
 
   <div id="item-labels">
   {{#grouped_each 3 results}}
@@ -69,7 +69,8 @@
           <h4 class="active-ingredients-header">Active Ingredients</h4>
           {{#each openfda.substance_name}}
             <div class="active-ingredient">
-              <a href="#" class="substance" data-substance="{{this}}">
+              <a href="#ingredient-search" class="substance"
+                data-substance="{{this}}">
                 {{this}}
               </a>
             </div>
@@ -80,7 +81,7 @@
     </div>
   {{/grouped_each}}
   </div>
-  
+
    <div class="search-footer">
     <ul class="pagination">
     {{#paginate meta.results type="previous"}}

@@ -1,6 +1,6 @@
 # FDA PharmaQuery #
 
-Our <a href="http://openfda.ctacdev.com" target="_blank">working prototype</a>.
+Our <a href="https://openfda.ctacdev.com" target="_blank">working prototype</a>.
 
 ---
 

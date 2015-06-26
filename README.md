@@ -14,8 +14,8 @@ Development Snapshot: [![Build Status](http://ec2-54-175-101-110.compute-1.amazo
 
 ### Reports
 - [Test Report](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/lastCompletedBuild/testReport/)
-- [Code Coverage Report](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/CoverTest/Code_Coverage_Report/)
-- [Test History Analysis](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/CoverTest/test_results_analyzer/)
+- [Code Coverage Report](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/Code_Coverage_Report/)
+- [Test History Analysis](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA/test_results_analyzer/)
 
 Stable Release: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA Release)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA Release)
 

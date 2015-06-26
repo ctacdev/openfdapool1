@@ -16,6 +16,7 @@ window.FDA.Labels = (function($, Handlebars) {
     });
     var labelTemplate = getTemplate("labels");
     $("#items").html(labelTemplate(data));
+    $("html, body").scrollTop($("#ingredient-search").offset().top);
   }
 
   // Public functions

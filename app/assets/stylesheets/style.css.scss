@@ -62,6 +62,8 @@ h1 {color: $dkBlue;}
 
 /* general styles */
 
+html, body {height: 100%;}
+
 body, h2, h3, h4, p, a {color: $textColor;}
 
 .skip-link {
@@ -69,6 +71,19 @@ body, h2, h3, h4, p, a {color: $textColor;}
   white-space: nowrap;
   overflow: hidden;
 }
+
+main {
+  margin-bottom: -75px;
+  min-height: 100%;
+  padding-top: 51px;
+}
+
+main:after {
+  content: "";
+  display: block;
+}
+
+main:after, footer {height: 75px;}
 
 /* style-guide */
 .style-guide {
@@ -160,6 +175,21 @@ code {margin-bottom: 15px;}
 .widget-5 {background: url('interactants-widget.png') no-repeat #f79311;}
 .widget-6 {}
 
+footer {
+  background-color: #696969;
+  .fine-print, #version {
+    color: #fff;
+    font-size: 10px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    padding: 15px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {height: 135px;}
+}
+
 
 /* ingredient browser */
 
@@ -180,10 +210,10 @@ code {margin-bottom: 15px;}
     text-indent: 5px;
     text-transform: lowercase;
   }
-  form input::-webkit-input-placeholder {color: $dkBlue;;}
-  form input:-moz-placeholder {color: $dkBlue;;}
-  form input::-moz-placeholder {color: $dkBlue;;}
-  form input:-ms-input-placeholder {color: $dkBlue;;}
+  form input::-webkit-input-placeholder {color: $dkBlue;}
+  form input:-moz-placeholder {color: $dkBlue;}
+  form input::-moz-placeholder {color: $dkBlue;}
+  form input:-ms-input-placeholder {color: $dkBlue;}
 }
 
 .ui-autocomplete.ui-front .ui-menu-item {}

@@ -12,6 +12,11 @@ $(function () {
     FDA.Labels.findWithIngredient(substance);
   })
 
+  $("#items").on("click", ".show-more-ingredients", function(e) {
+    $(this).siblings(".hidden-ingredients").removeClass("hidden");
+    $(this).hide();
+  });
+
   function autocompleteFormat(data) {
     return $.map(data.results, function (val) {
       return {

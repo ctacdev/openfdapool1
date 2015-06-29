@@ -4,11 +4,11 @@ Rails.application.routes.draw do
       resources :active_ingredients, only: [:index]
     end
   end
-  
+
   controller :visitors do
-    get 'visitors/style_guide'     => :style_guide
-    get 'visitors/widget_gallery'     => :widget_gallery
+    get 'ingredient_browser'
+    get 'style_guide'
   end
-  
+
   root to: 'visitors#index'
 end

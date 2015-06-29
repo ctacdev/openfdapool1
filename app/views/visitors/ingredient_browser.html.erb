@@ -1,0 +1,130 @@
+<div class="ingredient-browser">
+
+  <div class="bubble-chart container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="bubblechartcontainer" class="smaller"></div>
+        <button id="resizeChartButton" class="hidden-xs pull-right">Toggle Visualization Size</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="header container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h1>The Ingredient Browser</h1>
+      </div>
+      <div class="col-sm-7">
+        <div class="skip-link"><a href="#ingredient-search">Skip to Ingredient Search</a></div>
+        <p aria-hidden="true">This visual graphic gives an overall glance of the most common  pharmaceutical ingredients used in medications, cosmetics, consumable products, and their frequency of occurance.</p>
+        <p aria-hidden="true">Hover and select a bubble for a list of products that contain the element.</p>
+        <p> Update the input field below to search for specific pharmaceutical ingredients.</p>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="substance">Search for </label>
+            <input id="substance" role="search" placeholder="substance">
+            <input type="hidden" id="substance-id">
+
+            <!-- We need a way for this link to show after text has been entered so users can skip over the infographic and see the results table right away... for ease-of-use and accessibility -->
+
+            <a href="#ingredient-search">See results</a>
+
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <a id="ingredient-search"></a>
+  <div class="search container" role="main">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Results</h2>
+        <div class="details" style="display: none">
+          <p id="substance-details">
+            There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
+          </p>
+          <p id="collection-details">
+            This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
+          </p>
+        </div>
+        <div id="items"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bubblecharttooltip"></div>
+<script id="label-template" type="x-handlebars-template">
+
+
+  <div id="item-labels">
+  {{#grouped_each 3 results}}
+    <div class="row">
+    {{#each this}}
+      <div class="col-sm-4 item">
+        <h3 class="brand-name">{{openfda.brand_name}}</h3>
+        <div class="product-type">
+          <h4>Product Type</h4>
+          <span>{{openfda.product_type}}</span>
+        </div>
+        <div class="active-ingredients">
+          <h4 class="active-ingredients-header">Active Ingredients</h4>
+          {{#slice 0 4 openfda.substance_name}}
+            <div class="active-ingredient">
+              <a href="#ingredient-search" class="substance"
+                data-substance="{{this}}">
+                {{this}}
+              </a>
+            </div>
+          {{/slice}}
+          {{#ifMoreItems 5 openfda.substance_name}}
+            <div class="hidden-ingredients hidden">
+            {{#slice 5 0 openfda.substance_name}}
+              <div class="active-ingredient">
+                <a href="#ingredient-search" class="substance"
+                  data-substance="{{this}}">
+                  {{this}}
+                </a>
+              </div>
+            {{/slice}}
+            </div>
+            <a href="javascript: void(0);" class="show-more-ingredients">Show more...</a>
+          {{/ifMoreItems}}
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  {{/grouped_each}}
+  </div>
+
+   <div class="search-footer">
+    <ul class="pagination">
+    {{#paginate meta.results type="previous"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance={{substance}}
+          class="paginationLink"
+            aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="numbers"}}
+      <li {{#if active}}class="active"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance="{{substance}}"
+          class="paginationLink">{{n}}</a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="next"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance="{{substance}}"
+          class="paginationLink" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    </ul>
+  </div>
+
+</script>

@@ -13,4 +13,21 @@ feature 'Ingredient Browser page' do
     expect(page).to have_content 'The Ingredient Browser'
   end
 
+  scenario 'default to smaller widget' do
+    visit ingredient_browser_path
+    expect(page).to have_css '#bubblechartcontainer.smaller'
+  end
+
+  scenario 'expand to fullscreen widget' do
+    visit ingredient_browser_path
+    click_button 'Toggle Visualization Size'
+    expect(page).not_to have_css '#bubblechartcontainer.smaller'
+  end
+
+  scenario 'returns to smaller size' do
+    visit ingredient_browser_path
+    click_button 'Toggle Visualization Size'
+    click_button 'Toggle Visualization Size'
+    expect(page).to have_css '#bubblechartcontainer.smaller'
+  end
 end

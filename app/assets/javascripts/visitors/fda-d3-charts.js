@@ -139,7 +139,14 @@ $(function () {
   $.getJSON("/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=200", function(result){
       raw_api_json = result;
 	  build_d3_bubble_chart();
+
 	  // for responsive
 	  d3.select(window).on('resize', build_d3_bubble_chart);
+
+    // smaller / larger toggle
+    $("#resizeChartButton").click(function () {
+      $('#bubblechartcontainer').toggleClass("smaller");
+      build_d3_bubble_chart();
+    });
   });
 });

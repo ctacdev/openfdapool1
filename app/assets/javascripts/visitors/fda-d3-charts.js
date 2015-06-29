@@ -1,4 +1,6 @@
 $(function () {
+  var raw_api_json;
+
   // Returns a flattened hierarchy containing all leaf nodes under the root.
   function classes(root, node_limit) {
     var classes_list = [];
@@ -135,11 +137,17 @@ $(function () {
     d3.select(self.frameElement).style("height", diameter + "px");
   } // end build build_d3_bubble_chart
 
-  var raw_api_json;
   $.getJSON("/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=200", function(result){
-      raw_api_json = result;
+    raw_api_json = result;
 	  build_d3_bubble_chart();
+
 	  // for responsive
 	  d3.select(window).on('resize', build_d3_bubble_chart);
+
+    // smaller / larger toggle
+    $("#resizeChartButton").click(function () {
+      $('#bubblechartcontainer').toggleClass("smaller");
+      build_d3_bubble_chart();
+    });
   });
 });

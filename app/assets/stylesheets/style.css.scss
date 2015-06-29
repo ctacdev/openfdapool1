@@ -188,7 +188,13 @@ code {margin-bottom: 15px;}
 
 .ui-autocomplete.ui-front .ui-menu-item {}
 
+.bubble-chart {
+  button {margin-bottom: 10px;}
+}
+
 #bubblechartcontainer {
+  margin: auto;
+  max-width: 700px;
   &.smaller {
     max-width: 400px;
   }

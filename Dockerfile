@@ -12,17 +12,13 @@ ENV APP_HOME /openfda
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-# Add Gemfile and Gemfile.lock
 ADD Gemfile* $APP_HOME/
-# install gems
 RUN bundle install
-# precompile assets
+
 RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
-#add everything to container
 ADD . $APP_HOME
 
-#tell amazon which port the server runs on
-EXPOSE 3000
 
-#launch the app with foreman
+
+EXPOSE 3000
 CMD ["foreman", "start", "-e", ".env.production", "web"]

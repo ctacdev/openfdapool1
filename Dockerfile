@@ -17,7 +17,7 @@ ADD Gemfile* $APP_HOME/
 # install gems
 RUN bundle install
 # precompile assets
-RUN bundle exec rake assets:precompile RAILS_ENV=production --trace
+RUN bundle exec rake assets:precompile RAILS_ENV=production
 #add everything to container
 ADD . $APP_HOME
 

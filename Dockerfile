@@ -15,10 +15,9 @@ WORKDIR $APP_HOME
 ADD Gemfile* $APP_HOME/
 RUN bundle install
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
 ADD . $APP_HOME
-
-
+RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+ADD public $APP_HOME
 
 EXPOSE 3000
 CMD ["foreman", "start", "-e", ".env.production", "web"]

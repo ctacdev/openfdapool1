@@ -16,7 +16,7 @@ ADD Gemfile* $APP_HOME/
 RUN bundle install
 
 ADD . $APP_HOME
-RUN RAILS_ENV=production bundle exec rake assets:precompile --trace
+RUN bundle exec rake assets:precompile --trace RAILS_ENV=production
 ADD public $APP_HOME
 
 EXPOSE 3000

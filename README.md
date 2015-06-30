@@ -6,10 +6,6 @@ Our <a href="https://openfda.ctacdev.com" target="_blank">working prototype</a>.
 - [Pool 2 Development README](doc/readme/pool2/README.md)
 - [Pool 3 Full Stack README](doc/readme/pool3/README.md)
 
-## Description ##
-
-[Insert the 750-word required synopsis here.]
-
 ## Continuous Integration (CI) Server ##
 
 Development Snapshot: [![Build Status](http://ec2-54-175-101-110.compute-1.amazonaws.com/buildStatus/icon?job=OpenFDA)](http://ec2-54-175-101-110.compute-1.amazonaws.com/job/OpenFDA)
@@ -337,7 +333,6 @@ The highlight operations include:
 5. Elastic Beanstalk will deploy the uploaded project automatically into a new staging Docker container and then cascade update all load balanced instances if staging was successful (otherwise changes are rolled back)
 6. Connect to primary container and initiate production rake tasks
 
-
 ## Open Source Technologies Used ##
 
 The baseline [Ruby on Rails](http://rubyonrails.org/) application <a href="http://www.opensource.org/licenses/MIT">(MIT License)</a> was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
@@ -360,9 +355,3 @@ JavaScript unit tests are provided by [QUnit](http://qunitjs.com) <a href="https
 [Jenkins](https://jenkins-ci.org/) <a href="https://github.com/jenkinsci/jenkins/blob/master/LICENSE.txt">(MIT License)</a> provides continuous integration and delivery of successful candidate builds to the [Docker](https://www.docker.com/) container platform <a href="https://github.com/docker/docker/blob/master/LICENSE">(Apache v2)</a>.
 
 License attribution has been preserved, where applicable, in the binary distribution.
-
-## Credits ##
-[TODO or remove]
-
-## License ##
-[TODO]

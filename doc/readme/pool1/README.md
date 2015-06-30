@@ -26,7 +26,7 @@ Our developers relied exclusively on open source and free technologies: the fron
 
 We did an <em><strong>iteration of user testing with the application on multiple devices.</strong></em> After presenting the prototype in a casual user feedback session that involved user walkthroughs, we realized that the “Interaction Widget’ application workflow needed rethinking. The preliminary wireframes on the wireframing software Axure did not indicate the size of the infographic, which presented issue with locating the interactive search input. To balance the interest-garnering infographic with the search, we minimized the amount of space it used on the page and moved the search near to the results.  The final portion of the quality check process tested the integrity of the customer-supplied documentation by installing and running the application solely using the <em><strong>installation documentation and instructions</strong></em> provided to ensure that the customer is provisioned a <em><strong>dependency free deliverable that can be deployed into a fresh environment.</strong></em>
 
-### References in addition to the 750 word Description ###
+<em><strong>References in addition to the 750 word Description (reference page 16 of solicitation: “The README.md file should also make reference to the following...”)</strong></em>
 
 a. Assigned one leader and gave that person authority and responsibility and held that person accountable for the quality of the prototype submitted:  <em><strong>As part of our agile process, CTAC assigned a prototype project leader with the authority and responsibility for the development of the 18F Agile prototype, including accountability for the timely release and quality of the product.</strong></em>
 

@@ -2,6 +2,10 @@
 
 Our <a href="https://openfda.ctacdev.com" target="_blank">working prototype</a>.
 
+[Pool 1 Design README](doc/readme/pool1/README.md)
+[Pool 2 Development README](doc/readme/pool2/README.md)
+[Pool 3 Full Stack README](doc/readme/pool3/README.md)
+
 ## Description ##
 
 [Insert the 750-word required synopsis here.]

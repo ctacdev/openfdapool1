@@ -48,4 +48,4 @@ i. Created a prototype that works on multiple devices and presents a responsive 
 
 j. Provided sufficient documentation to install and run their prototype on another machine:  <em><strong>The final portion of the quality check process we used tested the integrity of the application by installing and running it solely using the installation documentation and instructions provided to ensure that the customer is provisioned a dependency free deliverable that can be deployed into a fresh environment. </strong></em>
 
-k. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge:  <em><strong>See CTAC’s license at:</strong></em>
+k. Prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge:  <em><strong>See CTAC’s license <a href="../../../LICENSE">here</a>.</strong></em>

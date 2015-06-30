@@ -285,7 +285,7 @@ Automated deployment (continuous delivery) is implemented with a second Jenkins 
 1. The project monitors the /master branch instead of develop
 2. The shell script task is responsible for building the docker container and deploying it instead of simply creating test reports
 
-The shell scrip can be seen here:
+The shell script can be seen here:
 
     #!/bin/bash
 

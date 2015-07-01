@@ -1,0 +1,22 @@
+{
+  "name": "openfda-pool1",
+  "version": "0.1.0",
+  "description": "Working pool 1 prototype OpenFDA",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctacdev/openfdapool1.git"
+  },
+  "author": "CTAC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ctacdev/openfdapool1/issues"
+  },
+  "homepage": "https://github.com/ctacdev/openfdapool1#readme"
+}

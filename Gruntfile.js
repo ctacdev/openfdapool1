@@ -6,8 +6,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.initConfig({
+    clean: {
+      build: {
+        src: ["dist"]
+      }
+    },
     // Put files not handled in other tasks here
     copy: {
       images: {
@@ -35,14 +42,18 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
-          style: "compressed"
+          style: "compressed",
+          loadPath: "bower_components/bootstrap-sass-official/assets/stylesheets"
         },
-        files: {
-          "dist/css/app.min.css": [
-            "src/scss/style.scss",
-            "src/scss/d3-theme.scss"
-          ]
-        }
+        files: [
+          {
+            expand: true,
+            cwd: "src/scss",
+            src: ["*.scss"],
+            dest: "dist/css",
+            ext: ".css"
+          }
+        ]
       }
     },
     /* Uglify our javascript */
@@ -63,12 +74,31 @@ module.exports = function(grunt) {
       server: {
         options: {
           open: true,
-          keepalive: true,
           base: "dist/"
         }
+      }
+    },
+    /* Watch for changed files and rebuild project */
+    watch: {
+      js: {
+        files: ["src/js/**/*.js"],
+        tasks: ["uglify:js"]
+      },
+      scss: {
+        files: ["src/scss/**/*.scss"],
+        tasks: ["sass:dev"]
+      },
+      images: {
+        files: ["src/images/**/*"],
+        tasks: ["copy:images"]
+      },
+      html: {
+        files: ["src/templates/**/*"],
+        tasks: ["copy:html"]
       }
     }
   });
 
-  grunt.registerTask('build', ['copy', 'sass:dev', 'uglify:js', 'connect:server']);
+  grunt.registerTask('build', ['clean', 'copy', 'sass:dev', 'uglify:js', 'connect:server', 'watch']);
+  grunt.registerTask('default', 'build');
 };

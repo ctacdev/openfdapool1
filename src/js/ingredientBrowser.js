@@ -31,7 +31,7 @@ $(function () {
     minLength: 3,
     source: function (request, response) {
       $.ajax({
-        url: "/api/v1/active_ingredients",
+        url: "https://openfda.ctacdev.com/api/v1/active_ingredients",
         dataType: "json",
         data: {
           q: request.term

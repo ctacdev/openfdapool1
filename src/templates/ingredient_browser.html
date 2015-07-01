@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Openfda Rfq</title>
+    <meta name="description" content="Openfda Rfq">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="jkXuG13cu+hhX40UcSZD2++hGL21mPU2s7wOCqrAYMZTVkQWQbqyh5GUSJlSY5yF+8g2Sq6HUZtCY3stnxBroQ==" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/framework_and_overrides.css" media="all"/>
+    <link rel="stylesheet" href="css/jquery-ui.css" media="all"/>
+    <link rel="stylesheet" media="all" href="css/style.css" />
+    <link rel="stylesheet" href="css/d3-themes.css" media="all" />
+
+    <script type="text/javascript" src="js/ingredientBrowser.min.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+      <span class="logo-style-1">Pharma</span><span class="logo-style-2">Query</span>
+</a>    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav" role="navigation" >
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    </header>
+    <main role="main">
+
+       <div class="ingredient-browser">
+  <div class="skip-link"><a href="#ingredient-search">Skip to Ingredient Search</a></div>
+  <div class="bubble-chart container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div id="bubblechartcontainer" class="smaller"></div>
+        <button id="resizeChartButton" class="hidden-xs pull-right">Toggle Visualization Size</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="header container">
+    <div class="row">
+      <div class="col-sm-5">
+        <h1>The Ingredient Browser</h1>
+      </div>
+      <div class="col-sm-7">
+        <p aria-hidden="true">This visual graphic gives an overall glance of the most common  pharmaceutical ingredients used in medications, cosmetics, consumable products, and their frequency of occurance.</p>
+        <p aria-hidden="true">Hover and select a bubble for a list of products that contain the element.</p>
+        <p> Update the input field below to search for specific pharmaceutical ingredients.</p>
+        <form class="form-inline">
+          <div class="form-group">
+            <label for="substance">Search for </label>
+            <input id="substance" role="search" placeholder="substance">
+            <input type="hidden" id="substance-id">
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <a id="ingredient-search"></a>
+  <div class="search container" role="main">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Results</h2>
+        <div class="details" style="display: none">
+          <p id="substance-details">
+            There are <span id="substance-count"></span> labels whose ingredients contain <span id="substance-label"></span>.
+          </p>
+          <p id="collection-details">
+            This represents <span id="substance-percentage"></span>% of the <span id="collection-total"></span> labels in the system.
+          </p>
+        </div>
+        <div id="items"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="bubblecharttooltip"></div>
+<script id="label-template" type="x-handlebars-template">
+
+
+  <div id="item-labels">
+  {{#grouped_each 3 results}}
+    <div class="row">
+    {{#each this}}
+      <div class="col-sm-4 item">
+        <h3 class="brand-name">{{openfda.brand_name}}</h3>
+        <div class="product-type">
+          <h4>Product Type</h4>
+          <span>{{openfda.product_type}}</span>
+        </div>
+        <div class="active-ingredients">
+          <h4 class="active-ingredients-header">Active Ingredients</h4>
+          {{#slice 0 4 openfda.substance_name}}
+            <div class="active-ingredient">
+              <a href="#ingredient-search" class="substance"
+                data-substance="{{this}}">
+                {{this}}
+              </a>
+            </div>
+          {{/slice}}
+          {{#ifMoreItems 5 openfda.substance_name}}
+            <div class="hidden-ingredients hidden">
+            {{#slice 5 0 openfda.substance_name}}
+              <div class="active-ingredient">
+                <a href="#ingredient-search" class="substance"
+                  data-substance="{{this}}">
+                  {{this}}
+                </a>
+              </div>
+            {{/slice}}
+            </div>
+            <a href="javascript: void(0);" class="show-more-ingredients">Show more...</a>
+          {{/ifMoreItems}}
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  {{/grouped_each}}
+  </div>
+
+   <div class="search-footer">
+    <ul class="pagination">
+    {{#paginate meta.results type="previous"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance={{substance}}
+          class="paginationLink"
+            aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="numbers"}}
+      <li {{#if active}}class="active"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance="{{substance}}"
+          class="paginationLink">{{n}}</a>
+      </li>
+    {{/paginate}}
+    {{#paginate meta.results type="next"}}
+      <li {{#if disabled}} class="disabled"{{/if}}>
+        <a href="#" data-page="{{n}}" data-substance="{{substance}}"
+          class="paginationLink" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    {{/paginate}}
+    </ul>
+  </div>
+
+</script>
+
+    </main>
+    <footer>
+     <div class="container">
+       <div class="row">
+         <div class="col-sm-6 col-xs-12">
+         <p class="fine-print">&#8220;PharmaQuery&#8221;, &#8220;Ingredient Browser&#8221;, and other alluded titles are part of a prototype application built specifically for demonstration purposes only.</p>
+         </div>
+         <div class="col-sm-6  col-xs-12">
+           <span id="version" class="pull-right">v.v0.5.0
+</span>
+         </div>
+       </div>
+     </div>
+    </footer>
+  </body>
+</html>

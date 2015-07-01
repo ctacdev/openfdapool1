@@ -137,7 +137,7 @@ $(function () {
     d3.select(self.frameElement).style("height", diameter + "px");
   } // end build build_d3_bubble_chart
 
-  $.getJSON("/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=200", function(result){
+  $.getJSON("https://openfda.ctacdev.com/api/v1/active_ingredients.json?sort=count&sort_dir=desc&limit=200", function(result){
     raw_api_json = result;
 	  build_d3_bubble_chart();
 

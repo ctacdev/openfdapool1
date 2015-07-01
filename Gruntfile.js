@@ -65,7 +65,13 @@ module.exports = function(grunt) {
           preserveComments: false
         },
         files: {
-          "dist/js/app.min.js": ["src/js/**/*.js"]
+          "dist/js/ingredientBrowser.min.js": [
+            "src/js/lib/*.js",
+            "src/js/ingredientBrowser.js",
+            "src/js/fda_labels.js",
+            "src/js/fda-d3-charts.js"
+          ],
+          "ga.min.js": "src/js/ga.js"
         }
       }
     },

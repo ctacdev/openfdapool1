@@ -1,0 +1,7 @@
+{
+  "name": "openfda-pool1",
+  "description": "OpenFDA Proposal prototype for pool 1",
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.3.5"
+  }
+}

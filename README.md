@@ -43,13 +43,13 @@ and a rebuild of the development server will be triggered if a file is changed a
 
 ## Testing ##
 
-Ruby/Rails tests are provided by [RSpec](http://rspec.info/). The test suite may be run by invoking `rspec` from the project directory.
+Javascript Unit tests are provided by [QUnitJs](http://qunitjs.com).
 
-The RSpec test suite is located in the `spec/` directory.
+Javascript tests are located in the `test/` directory.
 
-Javascript Unit tests are provided by [QUnitJs](http://qunitjs.com). Test reports can be accessed locally at <a href="http://localhost:3000/qunit" target="_blank">http://localhost:3000/qunit</a> in development.
+The tests can be run using:
 
-Javascript tests are located in the `test/javascript/` directory.
+    $> grunt test
 
 ## Open Source Technologies Used ##
 

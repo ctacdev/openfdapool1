@@ -75,9 +75,13 @@ module.exports = function(grunt) {
             "src/js/fda_labels.js",
             "src/js/fda-d3-charts.js"
           ],
-          "ga.min.js": "src/js/ga.js",
+          "ga.min.js": "src/js/ga.js"
+        }
+      },
+      test: {
+        files: {
           "test/test.js": [
-            "src/js/lib/*.js",
+            "src/js/lib/handlebars-v3.0.3.js",
             "src/js/fda_labels.js",
             "test/fda_helpers.js"
           ]
@@ -116,5 +120,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', ['clean', 'copy', 'sass:dev', 'uglify:js', 'connect:server', 'watch']);
   grunt.registerTask('default', 'build');
-  grunt.registerTask('test', ['uglify:js', 'qunit'])
+  grunt.registerTask('test', ['uglify:test', 'qunit'])
 };

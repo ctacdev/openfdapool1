@@ -22,7 +22,7 @@ module.exports = function(grunt) {
       options: {
         accessKeyId: "<%= aws.accessKeyId %>",
         secretAccessKey: "<%= aws.secretAccessKey %>",
-        bucket: "openfda-rfp"
+        bucket: "openfdapool1.ctacdev.com"
       },
       /* Push all files in the dist/ folder to s3 */
       build: {

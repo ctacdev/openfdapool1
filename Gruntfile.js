@@ -9,8 +9,27 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-aws');
 
   grunt.initConfig({
+    /* Read aws credentials from a config file.
+     * In order to be able to deploy, you will need to contact the SA staff
+     * to get the accessKeyId and secretAccessKey from them and then add them
+     * to the credentials.json file with the appropriate json key.
+     */
+    aws: grunt.file.readJSON("credentials.json"),
+    s3: {
+      options: {
+        accessKeyId: "<%= aws.accessKeyId %>",
+        secretAccessKey: "<%= aws.secretAccessKey %>",
+        bucket: "openfda-rfp"
+      },
+      /* Push all files in the dist/ folder to s3 */
+      build: {
+        cwd: "dist/",
+        src: "**"
+      }
+    },
     qunit: {
       all: ["test/**/*.html"]
     },
@@ -118,6 +137,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask("deploy", ["clean", "copy", "sass", "uglify:js", "s3"])
   grunt.registerTask('build', ['clean', 'copy', 'sass:dev', 'uglify:js', 'connect:server', 'watch']);
   grunt.registerTask('default', 'build');
   grunt.registerTask('test', ['uglify:test', 'qunit'])

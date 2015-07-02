@@ -12,6 +12,7 @@ Assuming the above development tools are installed:
     $> cd openfda-pool1
     $> bundle install
     $> npm install
+    $> cp credentials.json.example credentials.json
     $> grunt
 
 This will install the required assets and development libraries through Bower and NPM and

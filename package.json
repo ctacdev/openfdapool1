@@ -30,5 +30,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-devtools": "^0.2.1",
     "qunitjs": "^1.18.0"
+  },
+  "dependencies": {
+    "jquery": "^2.1.4"
   }
 }

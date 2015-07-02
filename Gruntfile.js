@@ -47,7 +47,7 @@ module.exports = function(grunt) {
       dev: {
         options: {
           style: "compressed",
-          loadPath: "bower_components/bootstrap-sass-official/assets/stylesheets"
+          loadPath: "node_modules/bootstrap-sass/assets/stylesheets"
         },
         files: [
           {

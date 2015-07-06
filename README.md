@@ -1,6 +1,6 @@
 <a href="http://openfdapool1.ctacdev.com/" target="_blank">Working prototype</a>
 
-Our first step in building an effective application was identifying the proper User- Centered Design (UCD) approaches.  We involved potential users in as many steps as possible from the brainstorming phase to the prototype.  
+Our first step in building an effective application was identifying the proper User-Centered Design (UCD) approaches.  We involved potential users in as many steps as possible from the brainstorming phase to the prototype.  
 
 Our Product Owner (PO) is the lean agile leader of the multidisciplinary team that produced this prototype, and represents our customer/industry surrogate, *the accountable team leader with the vision of the solution and ability to ensure a timely release of a quality deliverable*[**(a)**](doc/Attachment E Approach Criteria Evidence.xlsx)[**(b)**](doc/Attachment E Approach Criteria Evidence.xlsx). The PO led a *self-organizing agile team empowered* to define the product’s requirements, create and test the usability of the proposed design, develop and test the application, and create and run test cases to validate the solution against requirements.
 

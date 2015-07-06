@@ -9,7 +9,6 @@ a.)
 
 b.)
 - [Kickoff meeting minutes](../../doc/readme/MeetingMinutes18FBPAKick-off.pdf?raw=true)
-- Billing breakdown TBD
 
 c.)
 - [User-oriented design documentation](../../doc/design_artifacts/PharmaQueryDesignDocumentation.pdf?raw=true)
@@ -34,7 +33,7 @@ d.)
 - [Prototype QA results](../../doc/design_artifacts/TestCase-18F_Open_FDA.pdf?raw=true)
 
 e.)
-- Style guide live link TBD
+- [Style guide](http://openfdapool1.ctacdev.com/style_guide.html)
 - [Style guide source](../../src/templates/style_guide.html)
 
 f.)

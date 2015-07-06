@@ -1,3 +1,3 @@
-[LINK TBD] Our <a href="https://xxxxx.ctacdev.com" target="_blank">working prototype</a>.
+<a href="http://openfdapool1.ctacdev.com/" target="_blank">Working prototype</a>
 
 [Evidentiary artifacts](doc/readme/evidence.md)
